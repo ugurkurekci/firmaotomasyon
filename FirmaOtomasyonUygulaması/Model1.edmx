@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="satisOtomasyonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="müsteriKayit">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="isim" Type="varchar" MaxLength="50" />
+          <Property Name="soyisim" Type="varchar" MaxLength="50" />
+          <Property Name="telefonNo" Type="int" />
+          <Property Name="email" Type="text" />
+        </EntityType>
+        <EntityType Name="satisYapilan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="alıcıAd" Type="varchar" MaxLength="50" />
+          <Property Name="alıcıSoyad" Type="varchar" MaxLength="50" />
+          <Property Name="alınanÜrün" Type="varchar" MaxLength="50" />
+          <Property Name="telefon" Type="int" />
+          <Property Name="fiyat" Type="int" />
+          <Property Name="miktar" Type="int" />
+        </EntityType>
+        <EntityType Name="ürünKayit">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ürünadi" Type="varchar" MaxLength="50" />
+          <Property Name="barkotno" Type="int" />
+          <Property Name="fiyat" Type="int" />
+          <Property Name="miktar" Type="int" />
+        </EntityType>
+        <EntityType Name="yetkiliData">
+          <Key>
+            <PropertyRef Name="tc" />
+          </Key>
+          <Property Name="tc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="yetkiliAdı" Type="varchar" MaxLength="50" />
+          <Property Name="yetkiliSoyadı" Type="varchar" MaxLength="50" />
+          <Property Name="yetkiliMaası" Type="int" />
+          <Property Name="yetkiliİsBaslangic" Type="text" />
+          <Property Name="yetkiliisBitis" Type="text" />
+        </EntityType>
+        <EntityContainer Name="satisOtomasyonModelStoreContainer">
+          <EntitySet Name="müsteriKayit" EntityType="Self.müsteriKayit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="satisYapilan" EntityType="Self.satisYapilan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ürünKayit" EntityType="Self.ürünKayit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="yetkiliData" EntityType="Self.yetkiliData" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="satisOtomasyonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="müsteriKayit">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="isim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="soyisim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefonNo" Type="Int32" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="satisYapilan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="alıcıAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="alıcıSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="alınanÜrün" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefon" Type="Int32" />
+          <Property Name="fiyat" Type="Int32" />
+          <Property Name="miktar" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ürünKayit">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ürünadi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="barkotno" Type="Int32" />
+          <Property Name="fiyat" Type="Int32" />
+          <Property Name="miktar" Type="Int32" />
+        </EntityType>
+        <EntityType Name="yetkiliData">
+          <Key>
+            <PropertyRef Name="tc" />
+          </Key>
+          <Property Name="tc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="yetkiliAdı" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="yetkiliSoyadı" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="yetkiliMaası" Type="Int32" />
+          <Property Name="yetkiliİsBaslangic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="yetkiliisBitis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="firmaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="müsteriKayit" EntityType="Self.müsteriKayit" />
+          <EntitySet Name="satisYapilans" EntityType="Self.satisYapilan" />
+          <EntitySet Name="ürünKayit" EntityType="Self.ürünKayit" />
+          <EntitySet Name="yetkiliDatas" EntityType="Self.yetkiliData" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="satisOtomasyonModelStoreContainer" CdmEntityContainer="firmaEntities">
+          <EntitySetMapping Name="müsteriKayit">
+            <EntityTypeMapping TypeName="satisOtomasyonModel.müsteriKayit">
+              <MappingFragment StoreEntitySet="müsteriKayit">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="isim" ColumnName="isim" />
+                <ScalarProperty Name="soyisim" ColumnName="soyisim" />
+                <ScalarProperty Name="telefonNo" ColumnName="telefonNo" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="satisYapilans">
+            <EntityTypeMapping TypeName="satisOtomasyonModel.satisYapilan">
+              <MappingFragment StoreEntitySet="satisYapilan">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="alıcıAd" ColumnName="alıcıAd" />
+                <ScalarProperty Name="alıcıSoyad" ColumnName="alıcıSoyad" />
+                <ScalarProperty Name="alınanÜrün" ColumnName="alınanÜrün" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+                <ScalarProperty Name="miktar" ColumnName="miktar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ürünKayit">
+            <EntityTypeMapping TypeName="satisOtomasyonModel.ürünKayit">
+              <MappingFragment StoreEntitySet="ürünKayit">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ürünadi" ColumnName="ürünadi" />
+                <ScalarProperty Name="barkotno" ColumnName="barkotno" />
+                <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+                <ScalarProperty Name="miktar" ColumnName="miktar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="yetkiliDatas">
+            <EntityTypeMapping TypeName="satisOtomasyonModel.yetkiliData">
+              <MappingFragment StoreEntitySet="yetkiliData">
+                <ScalarProperty Name="tc" ColumnName="tc" />
+                <ScalarProperty Name="yetkiliAdı" ColumnName="yetkiliAdı" />
+                <ScalarProperty Name="yetkiliSoyadı" ColumnName="yetkiliSoyadı" />
+                <ScalarProperty Name="yetkiliMaası" ColumnName="yetkiliMaası" />
+                <ScalarProperty Name="yetkiliİsBaslangic" ColumnName="yetkiliİsBaslangic" />
+                <ScalarProperty Name="yetkiliisBitis" ColumnName="yetkiliisBitis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

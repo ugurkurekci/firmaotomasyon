@@ -1,4 +1,5 @@
 # firmaotomasyon
+Proje Video : https://www.youtube.com/watch?v=3Zurqsd4OzQ
 
 C# ile yapılmıştır. Entity Framework kullanılmıştır. 
 ----------------------------------------

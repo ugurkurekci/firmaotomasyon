@@ -28,7 +28,7 @@ namespace FirmaOtomasyonUygulaması
 
 
         }
-        void ekranagetir()
+        void databaseoperation()
         {
             using (firmaEntities Firmamüsteri = new firmaEntities())
             {
@@ -39,9 +39,9 @@ namespace FirmaOtomasyonUygulaması
         private void kytbutton_Click(object sender, EventArgs e)
         {
             dataGridView1.Visible = Enabled;
-            ekranagetir();
+            databaseoperation();
         }
-        void dataveritexboxgetir()
+        void datatextboxoutput()
         {
             if (dataGridView1.CurrentRow.Index != -1)
             {
@@ -61,7 +61,7 @@ namespace FirmaOtomasyonUygulaması
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
-            dataveritexboxgetir();
+            datatextboxoutput();
         }
         void delete()
         {
@@ -73,7 +73,7 @@ namespace FirmaOtomasyonUygulaması
                         db.yetkiliDatas.Attach(yetkilipersonel);
                     db.yetkiliDatas.Remove(yetkilipersonel);
                     db.SaveChanges();
-                    ekranagetir();
+                    databaseoperation();
                     MessageBox.Show("Kayıt Silindi.");
 
 
@@ -84,7 +84,7 @@ namespace FirmaOtomasyonUygulaması
         {
             delete();
         }
-        void guncelle()
+        void update()
         {
             using (firmaEntities db = new firmaEntities())
             {
@@ -95,14 +95,14 @@ namespace FirmaOtomasyonUygulaması
                 yetkilipersonel.yetkiliİsBaslangic = isbaslangıctxb.Text.Trim();
                 yetkilipersonel.yetkiliisBitis = issonlandirmatxb.Text.Trim();
                 db.SaveChanges();
-                ekranagetir();
+                databaseoperation();
             }
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            guncelle();
+            update();
         }
 
         private void button3_Click(object sender, EventArgs e)

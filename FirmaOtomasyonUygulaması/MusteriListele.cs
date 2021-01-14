@@ -30,10 +30,10 @@ namespace FirmaOtomasyonUygulaması
 
         private void kytbutton_Click(object sender, EventArgs e)
         {
-            databaseekranagetir();
+            databaseoperation();
             dataGridView1.Visible = Enabled;
         }
-        void databaseekranagetir()
+        void databaseoperation()
         {
             using (firmaEntities Firmamüsteri = new firmaEntities())
             {
@@ -43,10 +43,10 @@ namespace FirmaOtomasyonUygulaması
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            dataveritexboxgetir();
+            datatextboxoutput();
 
         }
-        void dataveritexboxgetir()
+        void datatextboxoutput()
         {
             if (dataGridView1.CurrentRow.Index != -1)
             {
@@ -72,7 +72,7 @@ namespace FirmaOtomasyonUygulaması
                         db.müsteriKayit.Attach(Firmamüsteri);
                     db.müsteriKayit.Remove(Firmamüsteri);
                     db.SaveChanges();
-                    databaseekranagetir();
+                    databaseoperation();
                     MessageBox.Show("Kayıt Silindi.");
 
 
@@ -86,10 +86,10 @@ namespace FirmaOtomasyonUygulaması
 
         private void button1_Click(object sender, EventArgs e)
         {
-            guncelle();
+            update();
         }
 
-        void guncelle()
+        void update()
         {
             using (firmaEntities db = new firmaEntities())
             {
@@ -99,7 +99,7 @@ namespace FirmaOtomasyonUygulaması
                 Firmamüsteri.email = mailtxb.Text.Trim();
                 Firmamüsteri.telefonNo = Convert.ToInt32(telefontxb.Text);
                 db.SaveChanges();
-                databaseekranagetir();
+                databaseoperation();
                 MessageBox.Show("Güncellendi");
             }
 

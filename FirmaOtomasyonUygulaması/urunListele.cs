@@ -27,7 +27,7 @@ namespace FirmaOtomasyonUygulaması
 
         }
 
-        void veritabanıekranagetir()
+        void databaseoperation()
         {
             using (firmaEntities Firmamüsteri = new firmaEntities())
             {
@@ -38,10 +38,10 @@ namespace FirmaOtomasyonUygulaması
 
         private void kytbutton_Click(object sender, EventArgs e)
         {
-            veritabanıekranagetir();
+            databaseoperation();
             dataGridView1.Visible = Enabled;
         }
-        void dataveritexboxgetir()
+        void datatextboxoutput()
         {
             if (dataGridView1.CurrentRow.Index != -1)
             {
@@ -60,7 +60,7 @@ namespace FirmaOtomasyonUygulaması
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            dataveritexboxgetir();
+            datatextboxoutput();
         }
         void delete()
         {
@@ -72,7 +72,7 @@ namespace FirmaOtomasyonUygulaması
                         db.ürünKayit.Attach(Firmaürün);
                     db.ürünKayit.Remove(Firmaürün);
                     db.SaveChanges();
-                    veritabanıekranagetir();
+                    databaseoperation();
                     MessageBox.Show("Kayıt Silindi.");
 
 
@@ -83,7 +83,7 @@ namespace FirmaOtomasyonUygulaması
         {
             delete();
         }
-        void guncelle()
+        void update()
         {
             using (firmaEntities db = new firmaEntities())
             {
@@ -93,14 +93,14 @@ namespace FirmaOtomasyonUygulaması
                 Firmaürün.fiyat = Convert.ToInt32(fiyattxb.Text);
                 Firmaürün.miktar = Convert.ToInt32(miktartxb.Text);
                 db.SaveChanges();
-                veritabanıekranagetir();
+                databaseoperation();
             }
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            guncelle();
+            update();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

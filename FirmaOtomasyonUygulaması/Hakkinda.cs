@@ -23,5 +23,10 @@ namespace FirmaOtomasyonUygulaması
             anasayfa.Show();
             this.Hide();
         }
+
+        private void Hakkinda_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

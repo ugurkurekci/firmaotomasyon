@@ -138,6 +138,7 @@ namespace FirmaOtomasyonUygulaması
         {
             SatısListele listele = new SatısListele();
             listele.Show();
+            this.Hide();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

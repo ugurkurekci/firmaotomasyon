@@ -7,7 +7,7 @@
 
 <h3 align="center"> Müşteri ve ürün ekleme sayfalarından veri girdilerini sağlayabilirsiniz. Satışı yapılacak ürünün önce müşterisini ve ürününü, database'ye eklemeniz gerekmektedir. Satış ekle bölümünde belirtilen combobox'lara databaseden veri çekilmektedir ve olmayan veriyi çekemediği gibi işlem yapmanıza engel olacaktır. </h3>
 
-![](https://i.hizliresim.com/uX2ToO.png)
+<div align="center">![](https://i.hizliresim.com/uX2ToO.png)
 ![](https://i.hizliresim.com/kAVuLT.png)
 ![](https://i.hizliresim.com/SmrCmQ.png)
 ![](https://i.hizliresim.com/rKiVih.png)
@@ -16,7 +16,7 @@
 ![](https://i.hizliresim.com/wxrfzx.png)
 ![](https://i.hizliresim.com/9I2BHv.png)
 ![](https://i.hizliresim.com/2tHqrE.png)
-![](https://i.hizliresim.com/l6iROp.png)
+![](https://i.hizliresim.com/l6iROp.png) </div>
 
 
 

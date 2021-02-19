@@ -25,9 +25,10 @@ namespace FirmaOtomasyonUygulaması
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<LoginData> LoginData { get; set; }
         public virtual DbSet<müsteriKayit> müsteriKayit { get; set; }
-        public virtual DbSet<satisYapilan> satisYapilans { get; set; }
+        public virtual DbSet<satisYapilan> satisYapilan { get; set; }
         public virtual DbSet<ürünKayit> ürünKayit { get; set; }
-        public virtual DbSet<yetkiliData> yetkiliDatas { get; set; }
+        public virtual DbSet<yetkiliData> yetkiliData { get; set; }
     }
 }

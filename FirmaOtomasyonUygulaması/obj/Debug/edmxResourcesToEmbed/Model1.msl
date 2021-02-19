@@ -1,8 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="satisOtomasyonModelStoreContainer" CdmEntityContainer="firmaEntities">
+  <EntityContainerMapping StorageEntityContainer="firmaModelStoreContainer" CdmEntityContainer="firmaEntities">
+    <EntitySetMapping Name="LoginData">
+      <EntityTypeMapping TypeName="firmaModel.LoginData">
+        <MappingFragment StoreEntitySet="LoginData">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="müsteriKayit">
-      <EntityTypeMapping TypeName="satisOtomasyonModel.müsteriKayit">
+      <EntityTypeMapping TypeName="firmaModel.müsteriKayit">
         <MappingFragment StoreEntitySet="müsteriKayit">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="isim" ColumnName="isim" />
@@ -12,21 +21,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="satisYapilans">
-      <EntityTypeMapping TypeName="satisOtomasyonModel.satisYapilan">
+    <EntitySetMapping Name="satisYapilan">
+      <EntityTypeMapping TypeName="firmaModel.satisYapilan">
         <MappingFragment StoreEntitySet="satisYapilan">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="alıcıAd" ColumnName="alıcıAd" />
           <ScalarProperty Name="alıcıSoyad" ColumnName="alıcıSoyad" />
           <ScalarProperty Name="alınanÜrün" ColumnName="alınanÜrün" />
-          <ScalarProperty Name="telefon" ColumnName="telefon" />
           <ScalarProperty Name="fiyat" ColumnName="fiyat" />
           <ScalarProperty Name="miktar" ColumnName="miktar" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ürünKayit">
-      <EntityTypeMapping TypeName="satisOtomasyonModel.ürünKayit">
+      <EntityTypeMapping TypeName="firmaModel.ürünKayit">
         <MappingFragment StoreEntitySet="ürünKayit">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="ürünadi" ColumnName="ürünadi" />
@@ -36,8 +45,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="yetkiliDatas">
-      <EntityTypeMapping TypeName="satisOtomasyonModel.yetkiliData">
+    <EntitySetMapping Name="yetkiliData">
+      <EntityTypeMapping TypeName="firmaModel.yetkiliData">
         <MappingFragment StoreEntitySet="yetkiliData">
           <ScalarProperty Name="tc" ColumnName="tc" />
           <ScalarProperty Name="yetkiliAdı" ColumnName="yetkiliAdı" />

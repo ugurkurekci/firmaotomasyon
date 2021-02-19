@@ -28,7 +28,7 @@ namespace FirmaOtomasyonUygulaması
             {
                 try
                 {
-                   
+
                     personelbilgileri.yetkiliAdı = isimtxb.Text.Trim();
                     personelbilgileri.yetkiliSoyadı = soyisimtxb.Text.Trim();
                     personelbilgileri.yetkiliMaası = Convert.ToInt32(maastxb.Text);
@@ -47,7 +47,7 @@ namespace FirmaOtomasyonUygulaması
                 {
                     if (personelbilgileri.tc == 0)
                     {
-                        db.yetkiliDatas.Add(personelbilgileri);
+                        db.yetkiliData.Add(personelbilgileri);
                     }
 
                     db.SaveChanges();

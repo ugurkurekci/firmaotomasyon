@@ -52,3 +52,4 @@ C:\Users\ugurk\Documents\GitHub\firmaotomasyon\FirmaOtomasyonUygulaması\obj\Deb
 C:\Users\ugurk\Documents\GitHub\firmaotomasyon\FirmaOtomasyonUygulaması\obj\Debug\FirmaOtomasyonUygulaması.csproj.CopyComplete
 C:\Users\ugurk\Documents\GitHub\firmaotomasyon\FirmaOtomasyonUygulaması\obj\Debug\FirmaOtomasyonUygulaması.exe
 C:\Users\ugurk\Documents\GitHub\firmaotomasyon\FirmaOtomasyonUygulaması\obj\Debug\FirmaOtomasyonUygulaması.pdb
+C:\Users\ugurk\Documents\GitHub\firmaotomasyon\FirmaOtomasyonUygulaması\obj\Debug\FirmaOtomasyonUygulaması.Login.resources

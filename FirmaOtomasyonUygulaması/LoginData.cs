@@ -12,14 +12,10 @@ namespace FirmaOtomasyonUygulaması
     using System;
     using System.Collections.Generic;
     
-    public partial class satisYapilan
+    public partial class LoginData
     {
         public int id { get; set; }
-        public string alıcıAd { get; set; }
-        public string alıcıSoyad { get; set; }
-        public string alınanÜrün { get; set; }
-        public Nullable<int> fiyat { get; set; }
-        public Nullable<int> miktar { get; set; }
-        public Nullable<int> telefon { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
     }
 }

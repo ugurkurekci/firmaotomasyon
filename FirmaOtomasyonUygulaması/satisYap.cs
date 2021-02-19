@@ -55,7 +55,7 @@ namespace FirmaOtomasyonUygulaması
             {
                 if (yapsatis.id == 0)
                 {
-                    db.satisYapilans.Add(yapsatis);
+                    db.satisYapilan.Add(yapsatis);
                 }
                 db.SaveChanges();
             }

@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="satisOtomasyonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="firmaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="LoginData">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="müsteriKayit">
     <Key>
       <PropertyRef Name="id" />
@@ -18,9 +26,9 @@
     <Property Name="alıcıAd" Type="varchar" MaxLength="50" />
     <Property Name="alıcıSoyad" Type="varchar" MaxLength="50" />
     <Property Name="alınanÜrün" Type="varchar" MaxLength="50" />
-    <Property Name="telefon" Type="int" />
     <Property Name="fiyat" Type="int" />
     <Property Name="miktar" Type="int" />
+    <Property Name="telefon" Type="int" />
   </EntityType>
   <EntityType Name="ürünKayit">
     <Key>
@@ -43,7 +51,8 @@
     <Property Name="yetkiliİsBaslangic" Type="text" />
     <Property Name="yetkiliisBitis" Type="text" />
   </EntityType>
-  <EntityContainer Name="satisOtomasyonModelStoreContainer">
+  <EntityContainer Name="firmaModelStoreContainer">
+    <EntitySet Name="LoginData" EntityType="Self.LoginData" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="müsteriKayit" EntityType="Self.müsteriKayit" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="satisYapilan" EntityType="Self.satisYapilan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ürünKayit" EntityType="Self.ürünKayit" Schema="dbo" store:Type="Tables" />

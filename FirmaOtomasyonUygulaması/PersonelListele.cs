@@ -32,7 +32,7 @@ namespace FirmaOtomasyonUygulaması
         {
             using (firmaEntities Firmamüsteri = new firmaEntities())
             {
-                dataGridView1.DataSource = Firmamüsteri.yetkiliDatas.ToList<yetkiliData>();
+                dataGridView1.DataSource = Firmamüsteri.yetkiliData.ToList<yetkiliData>();
             }
         }
 
@@ -48,7 +48,7 @@ namespace FirmaOtomasyonUygulaması
                 yetkilipersonel.tc = Convert.ToInt32(dataGridView1.CurrentRow.Cells["tc"].Value);
                 using (firmaEntities personel = new firmaEntities())
                 {
-                    yetkilipersonel = personel.yetkiliDatas.Where(x => x.tc == yetkilipersonel.tc).FirstOrDefault();
+                    yetkilipersonel = personel.yetkiliData.Where(x => x.tc == yetkilipersonel.tc).FirstOrDefault();
 
                     isimtxb.Text = yetkilipersonel.yetkiliAdı;
                     soyisimtxb.Text = yetkilipersonel.yetkiliSoyadı;
@@ -70,8 +70,8 @@ namespace FirmaOtomasyonUygulaması
                 {
                     var entry = db.Entry(yetkilipersonel);
                     if (entry.State == EntityState.Detached)
-                        db.yetkiliDatas.Attach(yetkilipersonel);
-                    db.yetkiliDatas.Remove(yetkilipersonel);
+                        db.yetkiliData.Attach(yetkilipersonel);
+                    db.yetkiliData.Remove(yetkilipersonel);
                     db.SaveChanges();
                     databaseoperation();
                     MessageBox.Show("Kayıt Silindi.");
@@ -88,7 +88,7 @@ namespace FirmaOtomasyonUygulaması
         {
             using (firmaEntities db = new firmaEntities())
             {
-                yetkilipersonel = db.yetkiliDatas.Where(x => x.tc == yetkilipersonel.tc).FirstOrDefault();
+                yetkilipersonel = db.yetkiliData.Where(x => x.tc == yetkilipersonel.tc).FirstOrDefault();
                 yetkilipersonel.yetkiliAdı = isimtxb.Text.Trim();
                 yetkilipersonel.yetkiliSoyadı = soyisimtxb.Text.Trim();
                 yetkilipersonel.yetkiliMaası = Convert.ToInt32(maastxb.Text);

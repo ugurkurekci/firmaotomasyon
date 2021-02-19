@@ -4,7 +4,15 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="satisOtomasyonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="firmaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LoginData">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="müsteriKayit">
           <Key>
             <PropertyRef Name="id" />
@@ -23,9 +31,9 @@
           <Property Name="alıcıAd" Type="varchar" MaxLength="50" />
           <Property Name="alıcıSoyad" Type="varchar" MaxLength="50" />
           <Property Name="alınanÜrün" Type="varchar" MaxLength="50" />
-          <Property Name="telefon" Type="int" />
           <Property Name="fiyat" Type="int" />
           <Property Name="miktar" Type="int" />
+          <Property Name="telefon" Type="int" />
         </EntityType>
         <EntityType Name="ürünKayit">
           <Key>
@@ -48,7 +56,8 @@
           <Property Name="yetkiliİsBaslangic" Type="text" />
           <Property Name="yetkiliisBitis" Type="text" />
         </EntityType>
-        <EntityContainer Name="satisOtomasyonModelStoreContainer">
+        <EntityContainer Name="firmaModelStoreContainer">
+          <EntitySet Name="LoginData" EntityType="Self.LoginData" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="müsteriKayit" EntityType="Self.müsteriKayit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="satisYapilan" EntityType="Self.satisYapilan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ürünKayit" EntityType="Self.ürünKayit" Schema="dbo" store:Type="Tables" />
@@ -58,7 +67,15 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="satisOtomasyonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="firmaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="LoginData">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="müsteriKayit">
           <Key>
             <PropertyRef Name="id" />
@@ -77,9 +94,9 @@
           <Property Name="alıcıAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="alıcıSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="alınanÜrün" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="telefon" Type="Int32" />
           <Property Name="fiyat" Type="Int32" />
           <Property Name="miktar" Type="Int32" />
+          <Property Name="telefon" Type="Int32" />
         </EntityType>
         <EntityType Name="ürünKayit">
           <Key>
@@ -103,19 +120,29 @@
           <Property Name="yetkiliisBitis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="firmaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LoginData" EntityType="Self.LoginData" />
           <EntitySet Name="müsteriKayit" EntityType="Self.müsteriKayit" />
-          <EntitySet Name="satisYapilans" EntityType="Self.satisYapilan" />
+          <EntitySet Name="satisYapilan" EntityType="Self.satisYapilan" />
           <EntitySet Name="ürünKayit" EntityType="Self.ürünKayit" />
-          <EntitySet Name="yetkiliDatas" EntityType="Self.yetkiliData" />
+          <EntitySet Name="yetkiliData" EntityType="Self.yetkiliData" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="satisOtomasyonModelStoreContainer" CdmEntityContainer="firmaEntities">
+        <EntityContainerMapping StorageEntityContainer="firmaModelStoreContainer" CdmEntityContainer="firmaEntities">
+          <EntitySetMapping Name="LoginData">
+            <EntityTypeMapping TypeName="firmaModel.LoginData">
+              <MappingFragment StoreEntitySet="LoginData">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="müsteriKayit">
-            <EntityTypeMapping TypeName="satisOtomasyonModel.müsteriKayit">
+            <EntityTypeMapping TypeName="firmaModel.müsteriKayit">
               <MappingFragment StoreEntitySet="müsteriKayit">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="isim" ColumnName="isim" />
@@ -125,21 +152,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="satisYapilans">
-            <EntityTypeMapping TypeName="satisOtomasyonModel.satisYapilan">
+          <EntitySetMapping Name="satisYapilan">
+            <EntityTypeMapping TypeName="firmaModel.satisYapilan">
               <MappingFragment StoreEntitySet="satisYapilan">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="alıcıAd" ColumnName="alıcıAd" />
                 <ScalarProperty Name="alıcıSoyad" ColumnName="alıcıSoyad" />
                 <ScalarProperty Name="alınanÜrün" ColumnName="alınanÜrün" />
-                <ScalarProperty Name="telefon" ColumnName="telefon" />
                 <ScalarProperty Name="fiyat" ColumnName="fiyat" />
                 <ScalarProperty Name="miktar" ColumnName="miktar" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ürünKayit">
-            <EntityTypeMapping TypeName="satisOtomasyonModel.ürünKayit">
+            <EntityTypeMapping TypeName="firmaModel.ürünKayit">
               <MappingFragment StoreEntitySet="ürünKayit">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="ürünadi" ColumnName="ürünadi" />
@@ -149,8 +176,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="yetkiliDatas">
-            <EntityTypeMapping TypeName="satisOtomasyonModel.yetkiliData">
+          <EntitySetMapping Name="yetkiliData">
+            <EntityTypeMapping TypeName="firmaModel.yetkiliData">
               <MappingFragment StoreEntitySet="yetkiliData">
                 <ScalarProperty Name="tc" ColumnName="tc" />
                 <ScalarProperty Name="yetkiliAdı" ColumnName="yetkiliAdı" />
@@ -175,7 +202,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

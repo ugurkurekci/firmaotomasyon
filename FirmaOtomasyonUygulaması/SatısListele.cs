@@ -30,7 +30,7 @@ namespace FirmaOtomasyonUygulaması
         {
             using (firmaEntities satislistesi = new firmaEntities())
             {
-                dataGridView1.DataSource = satislistesi.satisYapilans.ToList<satisYapilan>();
+                dataGridView1.DataSource = satislistesi.satisYapilan.ToList<satisYapilan>();
             }
         }
 
@@ -46,7 +46,7 @@ namespace FirmaOtomasyonUygulaması
                 yapsatis.id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value);
                 using (firmaEntities firmalistesi = new firmaEntities())
                 {
-                    yapsatis = firmalistesi.satisYapilans.Where(x => x.id == yapsatis.id).FirstOrDefault();
+                    yapsatis = firmalistesi.satisYapilan.Where(x => x.id == yapsatis.id).FirstOrDefault();
 
                     alıcıadıtxb.Text = yapsatis.alıcıAd;
                     alıcısoyadtxb.Text = yapsatis.alıcıSoyad;
@@ -71,8 +71,8 @@ namespace FirmaOtomasyonUygulaması
                 {
                     var entry = db.Entry(yapsatis);
                     if (entry.State == EntityState.Detached)
-                        db.satisYapilans.Attach(yapsatis);
-                    db.satisYapilans.Remove(yapsatis);
+                        db.satisYapilan.Attach(yapsatis);
+                    db.satisYapilan.Remove(yapsatis);
                     db.SaveChanges();
                     databaseoperation();
                     MessageBox.Show("Kayıt Silindi.");
@@ -95,7 +95,7 @@ namespace FirmaOtomasyonUygulaması
         {
             using (firmaEntities db = new firmaEntities())
             {
-                yapsatis = db.satisYapilans.Where(x => x.id == yapsatis.id).FirstOrDefault();
+                yapsatis = db.satisYapilan.Where(x => x.id == yapsatis.id).FirstOrDefault();
                 yapsatis.alıcıAd = alıcıadıtxb.Text.Trim();
                 yapsatis.alıcıSoyad = alıcısoyadtxb.Text.Trim();
                 yapsatis.alınanÜrün = alınanürüntxb.Text.Trim();
